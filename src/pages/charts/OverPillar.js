@@ -1,37 +1,33 @@
-import React from "react";
-import {
-  Chart,
-  Geom,
-  Axis,
-  Tooltip,
-  Legend,
-} from "bizcharts";
-import DataSet from "@antv/data-set";
+import React from 'react';
+import { Chart, Geom, Axis, Tooltip, Legend } from 'bizcharts';
+import DataSet from '@antv/data-set';
 
 class OverPillar extends React.Component {
+  componentDidMount() {}
+
   render() {
-    const {data} = this.props;
+    const { data } = this.props;
     const ds = new DataSet();
     const dv = ds
       .createView()
       .source(data)
       .transform({
-        type: "percent",
-        field: "value",
+        type: 'percent',
+        field: 'value',
         // 统计销量
-        dimension: "country",
+        dimension: 'country',
         // 每年的占比
-        groupBy: ["year"],
+        groupBy: ['year'],
         // 以不同产品类别为分组
-        as: "percent"
+        as: 'percent',
       });
     const cols = {
       percent: {
         min: 0,
         formatter(val) {
-          return (val * 100).toFixed(2) + "%";
-        }
-      }
+          return `${(val * 100).toFixed(2)}%`;
+        },
+      },
     };
     return (
       <div>

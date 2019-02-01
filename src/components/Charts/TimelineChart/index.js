@@ -7,7 +7,6 @@ import styles from './index.less';
 
 @autoHeight()
 class TimelineChart extends React.Component {
-
   render() {
     const {
       title,
@@ -16,9 +15,9 @@ class TimelineChart extends React.Component {
       titleMap = {
         y1: 'y1',
         y2: 'y2',
-        y3:'y3',
-        y4:'y4',
-        y5:'y5',
+        y3: 'y3',
+        y4: 'y4',
+        y5: 'y5',
       },
 
       data = [
@@ -26,22 +25,22 @@ class TimelineChart extends React.Component {
           x: 0,
           y1: 0,
           y2: 0,
-          y3:0,
-          y4:0,
-          y5:0,
+          y3: 0,
+          y4: 0,
+          y5: 0,
         },
       ],
     } = this.props;
 
     // data.sort((a, b) => a.x - b.x);
     let max;
-    if (data[0] && data[0].y1 && data[0].y2&& data[0].y3&& data[0].y4&& data[0].y5) {
+    if (data[0] && data[0].y1 && data[0].y2 && data[0].y3 && data[0].y4 && data[0].y5) {
       max = Math.max(
         [...data].sort((a, b) => b.y1 - a.y1)[0].y1,
         [...data].sort((a, b) => b.y2 - a.y2)[0].y2,
         [...data].sort((a, b) => b.y3 - a.y3)[0].y3,
         [...data].sort((a, b) => b.y4 - a.y4)[0].y4,
-        [...data].sort((a, b) => b.y5 - a.y5)[0].y5,
+        [...data].sort((a, b) => b.y5 - a.y5)[0].y5
       );
     }
 
@@ -75,7 +74,7 @@ class TimelineChart extends React.Component {
       })
       .transform({
         type: 'fold',
-        fields: [titleMap.y1,titleMap.y2,titleMap.y3,titleMap.y4,titleMap.y5], // 展开字段集
+        fields: [titleMap.y1, titleMap.y2, titleMap.y3, titleMap.y4, titleMap.y5], // 展开字段集
         key: 'key', // key字段
         value: 'value', // value字段
       });
@@ -98,9 +97,9 @@ class TimelineChart extends React.Component {
         xAxis="x"
         yAxis="y1"
         scales={{
-          x:{
-            formatter: (x) => parseInt(x, 10)
-          }
+          x: {
+            formatter: x => parseInt(x, 10),
+          },
         }}
         data={data}
         start={ds.state.start}
@@ -120,7 +119,12 @@ class TimelineChart extends React.Component {
             <Axis name="x" />
             <Tooltip />
             <Legend name="key" position="top" />
-            <Geom type='line' position="x*value" size={['key', [2, 2, 2, 1, 1]]} color={['key', ['#1890FF', '#2FC25B','#FACC14', '#ccc','#999']]} />
+            <Geom
+              type="line"
+              position="x*value"
+              size={['key', [2, 2, 2, 1, 1]]}
+              color={['key', ['#1890FF', '#2FC25B', '#FACC14', '#ccc', '#999']]}
+            />
           </Chart>
           <div style={{ marginRight: -20 }}>
             <SliderGen />

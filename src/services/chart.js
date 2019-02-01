@@ -1,7 +1,6 @@
 import { stringify } from 'qs';
 import request from '@/utils/request';
 
-
 export async function getLingJian(params) {
   return request(`/api/find.part_style?${stringify(params)}`);
 }
@@ -14,7 +13,7 @@ export async function getAnalyze(params) {
 }
 
 export async function getZone(params) {
- // return request(`/api/find.zone_info?${stringify(params)}`);
+  // return request(`/api/find.zone_info?${stringify(params)}`);
   return request('/api/find.zone_info', {
     method: 'POST',
     body: params,
