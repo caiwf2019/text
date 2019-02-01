@@ -93,6 +93,7 @@
   },
   "lint-staged": {
     "**/*.{js,ts,tsx,json,jsx,less}": [
+      "npm run prettier",
       "node ./scripts/lint-prettier.js",
       "git add"
     ],
