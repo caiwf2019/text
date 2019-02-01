@@ -1,18 +1,12 @@
 import { isResOK } from '@/utils/BizUtil';
-import {
-  getLingJian,
-  getZone,
-  getAnalyze,
-  getGroupResult,
-  getHost,
-} from '@/services/chart';
+import { getLingJian, getZone, getAnalyze, getGroupResult, getHost } from '@/services/chart';
 
 const servToReduce = {
   getLingJian: { method: getLingJian, reduce: 'getLingJian' },
   getZone: { method: getZone, reduce: 'getZone' },
   getAnalyze: { method: getAnalyze, reduce: 'getAnalyze' },
-  getGroupResult:{ method: getGroupResult, reduce: 'getGroupResult' },
-  getHost:{ method: getHost, reduce: 'getHost' }
+  getGroupResult: { method: getGroupResult, reduce: 'getGroupResult' },
+  getHost: { method: getHost, reduce: 'getHost' },
 };
 
 //
@@ -22,9 +16,9 @@ export default {
   state: {
     getLingJian: [],
     getAnalyze: [],
-    zone:{},
-    groupResult:{},
-    getHost:[],
+    zone: {},
+    groupResult: {},
+    getHost: [],
   },
 
   effects: {
@@ -83,7 +77,7 @@ export default {
         ...state,
         zone: action.payload,
         getAnalyze: action.payload,
-        groupResult:action.payload,
+        groupResult: action.payload,
       };
     },
   },
