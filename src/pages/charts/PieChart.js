@@ -12,7 +12,9 @@ import DataSet from "@antv/data-set";
 
 class pieChart extends React.Component {
 
-  componentDidMount(){}
+  componentDidMount(){
+    console.log.log(1);
+  }
 
   render() {
     const { DataView } = DataSet;
@@ -28,7 +30,7 @@ class pieChart extends React.Component {
       percent: {
         min: 0,
         formatter(val) {
-          return (val * 100).toFixed(2) + "%";
+          return `${(val * 100).toFixed(2)}%`;
         }
       }
     };
